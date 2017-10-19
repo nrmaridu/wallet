@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <welcome-file-list>
+    <welcome-file>jsp/index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>SignupServlet</servlet-name>
+    <servlet-class>com.wallet.servlet.SignupServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignupServlet</servlet-name>
+    <url-pattern>/signup</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SigninServlet</servlet-name>
+    <servlet-class>com.wallet.servlet.SigninServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SigninServlet</servlet-name>
+    <url-pattern>/signin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.wallet.servlet.LogoutServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>WalletServlet</servlet-name>
+    <servlet-class>com.wallet.servlet.WalletServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WalletServlet</servlet-name>
+    <url-pattern>/uwallet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WalletServlet</servlet-name>
+    <url-pattern>/addBalance</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>TransServlet</servlet-name>
+    <servlet-class>com.wallet.servlet.TransServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TransServlet</servlet-name>
+    <url-pattern>/trans</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TransServlet</servlet-name>
+    <url-pattern>/doTrans</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>WalletFilter</filter-name>
+    <filter-class>com.wallet.filter.WalletFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>WalletFilter</filter-name>
+    <url-pattern>/uwallet</url-pattern>
+    <url-pattern>/trans</url-pattern>
+  </filter-mapping>
+</web-app>

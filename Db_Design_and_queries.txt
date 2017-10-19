@@ -1,0 +1,60 @@
+Database Schema :   wallet
+
+tables : user, wallet, transactions
+
+Table fields :
+
+	1. user
+		id (not null and integer. Should be generated using the sequence)
+		username (not empty)
+		email ( not empty and should be in email format)
+		password ( not empty and minimum 8 chars)
+		phone number (not empty and should be min 10 chars and max 10)
+		
+	2. wallet
+		id(not null and integer. should be generated using the sequence)
+		uid ( not null and refers to the id field of user table(foreign key reference))
+		cash ( not null and upper limit is 100000 rupees)
+	
+	3. transactions
+		id(sequence)
+		amount(not null and integer)
+		comments( not null and varchar)
+		time( not null and timestamp of the transaction time)
+		user( not null and refer to the id column of user table)
+		
+--------------------------------------------------------- Database queries -----------------------------------------		
+
+create database wallet;
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `wallet`(
+`id` int NOT NULL AUTO_INCREMENT,
+`cash` double NOT NULL,
+`uid` int NOT NULL,
+PRIMARY KEY(`id`),
+KEY `wallet_uid` (`uid`),
+CONSTRAINT `wallet_uid` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `transactions`(
+`id` int NOT NULL AUTO_INCREMENT,
+`amount` double NOT NULL,
+`comments` varchar(250) NOT NULL,
+`time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+`user` int NOT NULL,
+PRIMARY KEY(`id`),
+KEY `trans_uid` (`user`),
+CONSTRAINT `trans_uid` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
