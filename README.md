@@ -38,3 +38,13 @@ Some of the important things to learn from this project :
 6. Accessing the resources(JSP's) which are inside the WEB-INF(protected area) using servlets.
 7. Session management to provide user login and logout functionality.
 
+
+How to run this project : 
+1. Clone the repository using the below command
+	git clone https://github.com/NageswaraRaoMaridu/wallet
+2. checkout master branch
+	git checkout master
+3. In eclipse import this project as maven project
+4. Configure Tomcat server
+5. Right click on project and then run on server.
+6. Access the application using the link http://localhost:8080/wallet
